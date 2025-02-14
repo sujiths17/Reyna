@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Previous head content remains the same until the .te-amo style -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For the Beloved rey</title>
+  <style>
+    /* Previous styles remain the same until .te-amo */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTVuMmo3ejJyNjRnZXVpbWtsZzVha2JzNGt3YjNpbjB0bWQzam1jNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FtIMKUXTDqxck/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cursive', 'Courier New', Courier, monospace;
+      color: #fff;
+      text-align: center;
+      overflow: auto;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px;
+      animation: fadeIn 2s ease-in-out;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff6f61;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      font-size: 4rem;
+      cursor: pointer;
+      animation: beat 1s infinite;
+    }
+
+    .heart:hover {
+      color: #ff6f61;
+    }
+
+
+    .click-me {
+      font-size: 1.2rem;
+      color: #ff6f61;
+      margin-bottom: 10px;
+      animation: pulse 1.5s ease-in-out infinite;
+      text-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+    }
+
+
+
+    .celebration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .celebration h2 {
+      font-size: 4rem;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .flags-animation {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flags-animation .flag {
+      position: absolute;
+      width: 100px;
+      height: 60px;
+      background-size: cover;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      z-index: 1;
+    }
+
+    .flags-animation .flag.left {
+      background-image: url('https://flagcdn.com/mx.svg');
+      left: -100px;
+      animation-name: moveLeft;
+    }
+
+    .flags-animation .flag.right {
+      background-image: url('https://flagcdn.com/in.svg');
+      right: -100px;
+      animation-name: moveRight;
+    }
+
+    .te-amo {
+      font-size: 5rem;
+      display: none;
+      animation: zoomIn 1s ease-in-out, glow 2s ease-in-out infinite;
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      z-index: 2;
+      background: linear-gradient(
+        to right,
+        #ff9aa2,
+        #ffdac1,
+        #e2f0cb,
+        #b5ead7,
+        #c7ceea
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 154, 162, 0.5),
+        0 0 35px rgba(255, 154, 162, 0.5),
+        0 0 40px rgba(255, 154, 162, 0.5);
+    }
+
+    .heart-shower {
+      position: absolute;
+      top: -100px;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .heart-shower .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: #ff6f61;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes moveLeft {
+      0% { left: -100px; }
+      100% { left: calc(50% - 110px); }
+    }
+
+    @keyframes moveRight {
+      0% { right: -100px; }
+      100% { right: calc(50% - 110px); }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        filter: brightness(1);
+        text-shadow: 
+          0 0 5px rgba(255, 255, 255, 0.5),
+          0 0 10px rgba(255, 255, 255, 0.5),
+          0 0 15px rgba(255, 255, 255, 0.5),
+          0 0 20px rgba(255, 154, 162, 0.5),
+          0 0 35px rgba(255, 154, 162, 0.5),
+          0 0 40px rgba(255, 154, 162, 0.5);
+      }
+      50% {
+        filter: brightness(1.2);
+        text-shadow: 
+          0 0 10px rgba(255, 255, 255, 0.7),
+          0 0 20px rgba(255, 255, 255, 0.7),
+          0 0 25px rgba(255, 255, 255, 0.7),
+          0 0 30px rgba(255, 154, 162, 0.7),
+          0 0 45px rgba(255, 154, 162, 0.7),
+          0 0 50px rgba(255, 154, 162, 0.7);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To my  Beloved rey</h1>
+    <p>
+      Hey 👋 rey 👀,<br><br>
+Dear [Her Name],
+
+Happy Valentine’s Day! 🌹
+
+I hope this day brings as much happiness to you as you bring to those around you. I wanted to take a moment to tell you just how much I admire you. It’s not just your smile or your beauty that stands out to me, but your kindness, your attitude, and the positive energy you carry with you everywhere you go. There’s something special about the way you light up a room and make people feel valued, and that is truly rare and wonderful<br><br>
+
+Though I know we’re on different paths, my heart can’t help but hold a special place for you. It’s not something I can easily explain, but there’s a feeling that’s stayed with me, something deeper that makes me appreciate you more than words can fully capture. Your heart, your spirit, and the vibe you —it's all so inspiring to me<br><br>
+
+Even though you may have kindly rejected my feelings before, I understand and respect that. But I want you to know that my admiration and care for you haven’t changed, and my heart continues to wish for yours, patiently and sincerely. You will always hold a special place in my heart, and I’ll be here, supporting you in any way I can, as you continue to do amazing things in this world<br><br>
+
+I’m wishing you a day full of love, joy, and all the beautiful things you deserve<br><br>
+
+With all my respect and admiration,
+
+       <br>
+      Your Secret Admirer <br><br>     <div class="click-me">✨ Click the heart! ✨</div>
+           
+    </p>
+    <div class="heart" onclick="startCelebration()">❤️</div>
+  </div>
+
+  <div class="celebration" id="celebration">
+    <h2>Happy Valentine's Day!</h2>
+    <div class="flags-animation">
+      <div class="flag left"></div>
+      <div class="flag right"></div>
+      <div class="te-amo" id="teAmo">Te Amo </div>
+    </div>
+    <div class="heart-shower" id="heartShower"></div>
+  </div>
+
+  <script>
+    function startCelebration() {
+      const celebration = document.getElementById('celebration');
+      const teAmo = document.getElementById('teAmo');
+      const heartShower = document.getElementById('heartShower');
+      celebration.style.display = 'flex';
+
+      setTimeout(() => {
+        teAmo.style.display = 'block';
+      }, 2000);
+
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        heartShower.appendChild(heart);
+      }
+
+      setTimeout(() => {
+        celebration.style.display = 'none';
+        celebration.innerHTML = '<h2>Happy Valentine\'s Day!</h2><div class="flags-animation"><div class="flag left"></div><div class="flag right"></div><div class="te-amo" id="teAmo">Be Happy</div></div><div class="heart-shower" id="heartShower"></div>';
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
